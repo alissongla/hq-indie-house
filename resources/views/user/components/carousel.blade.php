@@ -8,14 +8,14 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="..." alt="Second slide">
+        <img class="d-block w-100" src={{ asset('uploads/img/Bitter-root.jpg') }} alt="Second slide">
         <div class="carousel-caption d-none d-md-block">
             <h5>TESTE</h5>
             <p>teste</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="..." alt="Third slide">
+        <img class="d-block w-100" src={{ asset('uploads/img/Bitter-root.jpg') }} alt="Third slide">
         <div class="carousel-caption d-none d-md-block">
             <h5>TESTE</h5>
             <p>teste</p>

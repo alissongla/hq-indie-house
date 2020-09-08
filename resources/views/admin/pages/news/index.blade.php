@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tags</h1>
+            <h1>Notícias</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Tags</li>
+              <li class="breadcrumb-item active">Notícias</li>
             </ol>
           </div>
         </div>
@@ -29,18 +29,16 @@
 
     <table class="table table-bordered">
         <tr>
-            <th>Id</th>
-            <th>Nome</th>
+            <th>Título</th>
             <th width="280px"></th>
         </tr>
-        @foreach ($tags as $tag)
+        @foreach ($news as $noticia)
         <tr>
-            <td>{{ $tag->id }}</td>
-            <td>{{ $tag->name }}</td>
+            <td>{{ $noticia->title }}</td>
             <td>
-                <form action="{{ route('tags-destroy',$tag->id) }}" method="POST">
+                <form action="{{ route('news-destroy',$noticia->id) }}" method="POST">
 
-                    <a class="btn btn-primary" href="{{ route('tags-edit',$tag->id) }}">Editar</a>
+                    <a class="btn btn-primary" href="{{ route('news-edit',$noticia->id) }}">Editar</a>
 
                     @csrf
                     @method('DELETE')
@@ -52,7 +50,7 @@
         @endforeach
     </table>
     <div class="pull-right">
-        <a class="btn btn-primary" href="{{ route('tags-create') }}"> Cadastrar nova tag</a>
+        <a class="btn btn-primary" href="{{ route('news-create') }}"> Cadastrar nova notícia</a>
     </div>
     </section>
 </div>

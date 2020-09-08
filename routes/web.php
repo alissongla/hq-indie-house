@@ -35,6 +35,13 @@ Route::get('/admin/tags/edit/{id}', 'TagController@edit')->name('tags-edit');
 Route::put('/admin/tags/edit/{id}', 'TagController@update')->name('tags-update');
 Route::delete('/admin/tags/delete/{id}', 'TagController@destroy')->name('tags-destroy');
 
+Route::get('/admin/news', 'NewsController@index')->name('news');
+Route::get('/admin/news/insert', 'NewsController@create')->name('news-create');
+Route::post('/admin/news/insert', 'NewsController@store')->name('news-store');
+Route::get('/admin/news/edit/{id}', 'NewsController@edit')->name('news-edit');
+Route::put('/admin/news/edit/{id}', 'NewsController@update')->name('news-update');
+Route::delete('/admin/news/delete/{id}', 'NewsController@destroy')->name('news-destroy');
+
 //Auth::routes();
 
 //Route::get('/admin/home', 'HomeController@index')->name('home');

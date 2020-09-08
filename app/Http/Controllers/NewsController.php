@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\News;
+use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -14,7 +16,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news = News::latest()->paginate(5);
+
+        return view('admin.pages.news.index', ['news' => $news]);
     }
 
     /**
@@ -24,7 +28,9 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('admin.pages.news.create', ['categories' => $categories, 'tags' => $tags]);
     }
 
     /**
@@ -35,7 +41,22 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->hasFile('notImagem')) {
+
+        }
+
+        $request->validate([
+            'notTitulo' => 'required',
+            'notCaminho' => 'required|unique:news',
+            'notImagem' => 'mimes:jpeg,png|max:1014',
+            'category_id' => 'required',
+
+        ]);
+        $news = new News;
+        $news->title          = $request->notTitulo;
+        $tag->category_id   = $request->category_id;
+        $tag->save();
+        return redirect()->route('tags')->with('message', 'Tag cadastrada com sucesso!');
     }
 
     /**

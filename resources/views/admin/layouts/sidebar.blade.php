@@ -23,7 +23,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href={{ route('cadNoticias') }} class="nav-link active">
+                <a href={{ route('news') }} class="nav-link active">
                   <i class="far fa-newspaper nav-icon"></i>
                   <p>Notícias</p>
                 </a>

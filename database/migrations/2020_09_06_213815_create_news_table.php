@@ -23,6 +23,7 @@ class CreateNewsTable extends Migration
             $table->string('image_caption');
             $table->integer('likes');
             $table->integer('dislikes');
+            $table->boolean('publish');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('tag_id');
             $table->timestamps();

@@ -3,7 +3,7 @@
  @section('main-content')
   <!-- Main Content -->
   <div class="container">
-    @extends('user/components/carousel')
+    @include('user/components/carousel')
     <div class="row mb-5">
         <div class="col-4">
             <div class="row" id="ultimaCritica">

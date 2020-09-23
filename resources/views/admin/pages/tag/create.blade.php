@@ -31,14 +31,6 @@
                         <label for="name">Nome</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Digite o nome da tag">
                     </div>
-                    <div class="form-group">
-                        <label>Categoria</label>
-                        <select class="form-control" name="category_id">
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
                 </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Cadastrar Tag</button>

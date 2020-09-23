@@ -1,5 +1,10 @@
 @extends('admin/app')
 
+@section('head')
+<!-- Select2 -->
+<link rel="stylesheet" href={{ asset('admin/plugins/select2/css/select2.min.css') }}>
+<link rel="stylesheet" href={{ asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}>
+@endsection
 @section('main-content')
 <!-- Content Header (Page header) -->
 <div class="content-wrapper">
@@ -25,7 +30,8 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12">
-            <form role="form-noticias">
+            <form role="form-noticias" action="{{ route('news-store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="card-body">
                     <div class="form-group">
                         <label for="notTitulo">Título</label>
@@ -36,25 +42,25 @@
                         <input type="text" class="form-control" id="notAutor" name="notAutor" placeholder="Digite o nome do autor">
                     </div>
                     <div class="form-group">
-                        <label for="notCaminho">Caminho</label>
-                        <input type="text" class="form-control" id="notCaminho" name="notCaminho" placeholder="Digite o caminho que essa noticia terá">
-                    </div>
-                    <div class="form-group">
-                        <label>Categoria</label>
-                        <select class="form-control" name="category">
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
-                            @endforeach
-                        </select>
+                        <label for="slug">Caminho</label>
+                        <input type="text" class="form-control" id="slug" name="slug" placeholder="Digite o caminho que essa noticia terá">
                     </div>
                     <div class="form-group">
                         <label>Tags</label>
-                        <select class="form-control" id='tags' name='name[]'>
-                            @foreach($tags as $tag)
-                                <option value="{{$tag->id}}">{{$tag->name}}</option>
-                            @endforeach
+                        <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Selecione as tags" style="width: 100%;" tabindex="-1" name="tags[]">
+                        @foreach ($tags as $tag)
+                          <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
                         </select>
-                    </div>
+                      </div>
+                      <div class="form-group" style="margin-top:18px;">
+                        <label>Categorias</label>
+                        <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Selecione as categorias" style="width: 100%;" tabindex="-1" name="categories[]">
+                          @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
                     <div class="form-group">
                         <label for="notImagem">Imagem</label>
                         <div class="input-group">
@@ -69,7 +75,7 @@
                     </div>
                     <div class="form-group">
                         <label for="notImgLegenda">Legenda da imagem</label>
-                        <input type="password" class="form-control" id="notImgLegenda" name="notImgLegenda" placeholder="Adicione uma legenda para deficientes visuais poderem entender sua imagem">
+                        <input type="text" class="form-control" id="notImgLegenda" name="notImgLegenda" placeholder="Adicione uma legenda para deficientes visuais poderem entender sua imagem">
                     </div>
                     <div class="card card-outline card-info">
                         <div class="card-header">
@@ -87,17 +93,13 @@
                         <!-- /.card-header -->
                         <div class="card-body pad">
                           <div class="mb-3">
-                            <textarea class="textarea" placeholder="Digite o texto da notícia" id='description' name='description'
+                            <textarea class="textarea" placeholder="Digite o texto da notícia" id='notTexto' name='notTexto'
                                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                           </div>
-                          <p class="text-sm mb-0">
-                            Editor <a href="https://github.com/summernote/summernote">Documentation and license
-                            information.</a>
-                          </p>
                         </div>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="notPublicacao" name="notPublicacao">
+                        <input type="checkbox" class="form-check-input" id="notPublicacao" name="notPublicacao" value="1">
                         <label class="form-check-label" for="notPublicacao">Deseja publicar?</label>
                     </div>
                 </div>
@@ -115,14 +117,4 @@
     </section>
     <!-- /.content -->
   </div>
-
-  <script>
-    $(document).ready(function(){
-     $('#tags').multiselect({
-      nonSelectedText: 'Select tag',
-      enableFiltering: true,
-      enableCaseInsensitiveFiltering: true,
-      buttonWidth:'400px'
-     });
-    </script>
 @endsection

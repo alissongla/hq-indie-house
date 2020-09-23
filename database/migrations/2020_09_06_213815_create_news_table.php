@@ -24,12 +24,7 @@ class CreateNewsTable extends Migration
             $table->integer('likes');
             $table->integer('dislikes');
             $table->boolean('publish');
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('tag_id');
             $table->timestamps();
-
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 

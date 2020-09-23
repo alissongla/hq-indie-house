@@ -28,7 +28,16 @@
 <script src={{ asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}></script>
 <!-- AdminLTE App -->
 <script src={{ asset('admin/dist/js/adminlte.js') }}></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src={{ asset('admin/dist/js/pages/dashboard.js') }}></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src={{ asset('admin/dist/js/demo.js') }}></script>
+
+<!-- Select2 -->
+<script src={{ asset('admin/plugins/select2/js/select2.full.min.js') }}></script>
+
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+        $('.textarea').summernote();
+    });
+</script>

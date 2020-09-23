@@ -27,8 +27,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.pages.tag.create', ['categories' => $categories]);
+        return view('admin.pages.tag.create');
     }
 
     /**
@@ -41,12 +40,10 @@ class TagController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'category_id' => 'required',
 
         ]);
         $tag = new Tag;
         $tag->name          = $request->name;
-        $tag->category_id   = $request->category_id;
         $tag->save();
         return redirect()->route('tags')->with('message', 'Tag cadastrada com sucesso!');
     }

@@ -41,22 +41,33 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('notImagem')) {
-
-        }
-
         $request->validate([
             'notTitulo' => 'required',
-            'notCaminho' => 'required|unique:news',
-            'notImagem' => 'mimes:jpeg,png|max:1014',
-            'category_id' => 'required',
-
+            'slug' => 'required|unique:news',
         ]);
+
+        if ($request->hasFile('notImagem')) {
+            $imageName = $request->notImagem->store('public');
+        }else{
+            $imageName = null;
+        }
+
         $news = new News;
-        $news->title          = $request->notTitulo;
-        $tag->category_id   = $request->category_id;
-        $tag->save();
-        return redirect()->route('tags')->with('message', 'Tag cadastrada com sucesso!');
+        $news->title            = $request->notTitulo;
+        $news->author           = $request->notAutor;
+        $news->text             = $request->notTexto;
+        $news->slug             = $request->slug;
+        $news->image            = $imageName;
+        $news->image_caption    = $request->notImgLegenda;
+        $news->publish          = isset($request->notPublicacao) ? 1 : 0;
+        $news->likes            = '0';
+        $news->dislikes         = '0';
+        $news->save();
+
+        $news->tags()->sync($request->tags);
+        $news->categories()->sync($request->categories);
+
+        return redirect()->route('news')->with('message', 'Notícia cadastrada com sucesso!');
     }
 
     /**
@@ -76,9 +87,12 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit($id)
     {
-        //
+        $news = News::with('tags', 'categories')->where('id', $id)->first();
+        $tags = Tag::all();
+        $categories = Category::all();
+        return view('admin.pages.news.edit',compact('tags','categories', 'news'));
     }
 
     /**
@@ -88,9 +102,33 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'notTitulo' => 'required',
+            'slug' => 'required',
+        ]);
+
+        if ($request->hasFile('notImagem')) {
+            $imageName = $request->notImagem->store('public');
+        }else{
+            $imageName = null;
+        }
+
+        $news = News::findOrFail($id);
+        $news->title            = $request->notTitulo;
+        $news->author           = $request->notAutor;
+        $news->text             = $request->notTexto;
+        $news->slug             = $request->slug;
+        $news->image            = $imageName;
+        $news->image_caption    = $request->notImgLegenda;
+        $news->publish          = isset($request->notPublicacao) ? 1 : 0;
+        $news->save();
+
+        $news->tags()->sync($request->tags);
+        $news->categories()->sync($request->categories);
+
+        return redirect()->route('news')->with('message', 'Notícia cadastrada com sucesso!');
     }
 
     /**
@@ -99,8 +137,10 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy($id)
     {
-        //
+        $news = News::findOrFail($id);
+        $news->delete();
+        return redirect()->route('news')->with('alert-success','Notícia foi excluída com sucesso!');
     }
 }

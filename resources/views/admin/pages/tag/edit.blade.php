@@ -33,18 +33,6 @@
                         <label for="name">Nome</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Digite o título" value="{{ $tag->name }}">
                     </div>
-                    <div class="form-group">
-                        <label>Categoria</label>
-                        <select class="form-control" name="category_id">
-                            @foreach($categories as $category)
-                                @if($category->id == $tag->category_id)
-                                    <option value="{{$category->id}}" selected>{{$category->name}}</option>
-                                @else
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
                 </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Editar Tag</button>

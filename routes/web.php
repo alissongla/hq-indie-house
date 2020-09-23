@@ -2,20 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', function () {
-    return view('user/home');
-});
-
-Route::get('/ultimas-noticias', function () {
-    return view('user/lastNews');
-})->name('ultimas-noticias');
 Route::get('/podcasts', function () {
     return view('user/podcasts');
 })->name('podcasts');
 
 Route::group(['namespace' => 'User'], function() {
+    Route::get('/', 'HomeController@index')->name('home');
     Route::get('/noticias/{post}', 'PostController@index')->name('post');
+    Route::get('/ultimas-noticias', 'LastNewsController@index')->name('ultimas-noticias');
 });
 
 

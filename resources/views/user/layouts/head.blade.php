@@ -3,7 +3,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Clean Blog - Start Bootstrap Theme</title>
+<title>HQ House Indie</title>
 
 <!-- Bootstrap core CSS -->
 <link href={{ secure_asset('user/css/bootstrap/bootstrap.min.css') }} rel="stylesheet">

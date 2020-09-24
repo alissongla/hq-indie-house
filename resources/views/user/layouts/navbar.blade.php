@@ -5,22 +5,22 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Destaques</a>
+            <a class="nav-link" href="{{ route('home')}}">Destaques</a>
           </li>
           <li class="nav-item">
           <a class="nav-link" href="{{ route('ultimas-noticias')}}">Últimas notícias</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="post.html">Críticas</a>
+            <a class="nav-link" href="{{ route('home')}}">Críticas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('podcasts')}}">Podcast / Áudiopost</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Entrevista / Matérias</a>
+            <a class="nav-link" href="{{ route('home')}}">Entrevista / Matérias</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="{{ route('home')}}">Perfis</a>
           </li>
         </ul>
       </div>

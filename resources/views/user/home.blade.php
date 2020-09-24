@@ -7,7 +7,7 @@
     <div class="row mb-5">
         <div class="col-4">
             <div class="row" id="ultimaCritica">
-                <img class='img-block' src={{ asset('uploads/img/Bitter-root.jpg') }} alt="">
+                <img class='img-block' src={{ asset('img/bitter.jpg') }} alt="">
                 <div class="img-efeito">
                     <div class="img-texto">Última Crítica</div>
                 </div>
@@ -16,7 +16,7 @@
         <div class="col-4">
             <div class="col">
                 <div class="row" id="ultimaEntrevista">
-                    <img class='img-block' src={{ asset('uploads/img/Bitter-root.jpg') }} alt="">
+                    <img class='img-block' src={{ asset('img/bitter.jpg') }} alt="">
                     <div class="img-efeito">
                         <div class="img-texto">Última Entrevista</div>
                     </div>
@@ -26,7 +26,7 @@
         <div class="col-4">
             <div class="col">
                 <div class="row" id="ultimoPodcast">
-                    <img class='img-block' src={{ asset('uploads/img/Bitter-root.jpg') }} alt="">
+                    <img class='img-block' src={{ asset('img/bitter.jpg') }} alt="">
                     <div class="img-efeito">
                         <div class="img-texto">Último Podcast</div>
                     </div>
@@ -41,7 +41,7 @@
             @foreach ($news as $noticia)
                 <div class="row mb-5">
                     <div class="col-6">
-                        <img src={{ asset('img/Bitter-root.jpg') }} alt="" width="100%">
+                        <img src={{ asset('img/bitter.jpg') }} alt="" width="100%">
                     </div>
                     <div class="col-6" style="vertical-align: middle">
                     <h2><a href="{{ route('post', $noticia->slug)}}">{{ $noticia->title }}</a></h2>

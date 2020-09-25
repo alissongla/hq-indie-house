@@ -15,11 +15,12 @@ class CreateNewsTagsTable extends Migration
     {
         Schema::create('news_tags', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('news_id');
+            $table->unsignedBigInteger('news_id')->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('tag_id');
             $table->timestamps();
 
-            $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
+            $table->foreign('news_id')->references('id')->on('news');
+            $table->engine = 'MyISAM';
         });
     }
 

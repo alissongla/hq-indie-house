@@ -20,11 +20,11 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src={{ secure_asset('user/js/jquery/jquery.min.js')}}></script>
-  <script src={{ secure_asset('user/js/bootstrap/bootstrap.bundle.min.js')}}></script>
+  <script src={{ asset('user/js/jquery/jquery.min.js')}}></script>
+  <script src={{ asset('user/js/bootstrap/bootstrap.bundle.min.js')}}></script>
 
   <!-- Custom scripts for this template -->
-  <script src={{ secure_asset('user/js/clean-blog.min.js') }}></script>
+  <script src={{ asset('user/js/clean-blog.min.js') }}></script>
   @section('footer')
     @show
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFailedJobsTable extends Migration
+class ReviewTags extends Migration
 {
     /**
      * Run the migrations.
@@ -13,25 +13,24 @@ class CreateFailedJobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('failed_jobs', function (Blueprint $table) {
+        Schema::create('review_tags', function (Blueprint $table) {
             $table->id();
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+            $table->unsignedBigInteger('review_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('tag_id');
+            $table->timestamps();
 
+            $table->foreign('review_id')->references('id')->on('reviews');
             $table->engine = 'MyISAM';
         });
     }
 
-    /**
+   /**
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('review_tags');
     }
 }

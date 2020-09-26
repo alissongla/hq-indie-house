@@ -10,6 +10,12 @@ Route::group(['namespace' => 'User'], function() {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/noticias/{post}', 'PostController@index')->name('post');
     Route::get('/ultimas-noticias', 'LastNewsController@index')->name('ultimas-noticias');
+    Route::get('/criticas', 'LastReviewsController@index')->name('criticas');
+    Route::get('/criticas/{review}', 'LastReviewsController@show')->name('review-post');
+    Route::get('/podcasts', 'LastPodcastsController@index')->name('user-podcasts');
+    Route::get('/podcasts/{podcast}', 'LastPodcastsController@show')->name('user-podcasts-post');
+    Route::get('/entrevistas', 'LastInterviewsController@index')->name('user-interviews');
+    Route::get('/entrevistas/{interview}', 'LastInterviewsController@show')->name('user-interviews-post');
 });
 
 

@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->string('subtitle');
             $table->string('author');
             $table->longText('text');
-            $table->float('rating', 1, 1);
+            $table->float('rating', 10, 1);
             $table->string('slug');
             $table->string('image');
             $table->string('image_caption');

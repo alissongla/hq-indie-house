@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -104,6 +108,7 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $news = News::findOrFail($id);
         $request->validate([
             'notTitulo' => 'required',
             'slug' => 'required',
@@ -112,10 +117,10 @@ class NewsController extends Controller
         if ($request->hasFile('notImagem')) {
             $imageName = $request->notImagem->store('public');
         }else{
-            $imageName = null;
+            $imageName = $news->image;
         }
 
-        $news = News::findOrFail($id);
+
         $news->title            = $request->notTitulo;
         $news->author           = $request->notAutor;
         $news->text             = $request->notTexto;

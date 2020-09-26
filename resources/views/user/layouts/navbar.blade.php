@@ -14,7 +14,7 @@
             <a class="nav-link" href="{{ route('home')}}">Críticas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('podcasts')}}">Podcast / Áudiopost</a>
+            <a class="nav-link" href="{{ route('user-podcasts')}}">Podcast / Áudiopost</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('home')}}">Entrevista / Matérias</a>
@@ -22,6 +22,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('home')}}">Perfis</a>
           </li>
+
         </ul>
       </div>
     </div>

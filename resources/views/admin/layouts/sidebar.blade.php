@@ -14,7 +14,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-plus-square"></i>
               <p>
                 Cadastro
@@ -23,20 +23,26 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href={{ route('news') }} class="nav-link active">
+                <a href={{ route('news') }} class="nav-link">
                   <i class="far fa-newspaper nav-icon"></i>
                   <p>Notícias</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href={{ route('interviews') }} class="nav-link">
+                  <i class="fas fa-comment nav-icon"></i>
+                  <p>Entrevistas / Matérias</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href={{ route('podcasts') }} class="nav-link">
+                  <i class="fas  fa-microphone nav-icon"></i>
                   <p>Podcasts</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href={{ route('reviews') }} class="nav-link">
+                  <i class="fas fa-bullhorn nav-icon"></i>
                   <p>Críticas</p>
                 </a>
               </li>

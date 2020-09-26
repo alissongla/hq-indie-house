@@ -35,9 +35,21 @@
 <!-- Select2 -->
 <script src={{ asset('admin/plugins/select2/js/select2.full.min.js') }}></script>
 
+<!-- Ion Slider -->
+<script src={{ asset('admin/plugins/ion-rangeslider/js/ion.rangeSlider.min.js') }}></script>
+
 <script>
     $(document).ready(function () {
         $('.select2').select2();
-        $('.textarea').summernote();
+        $('.editorTexto').summernote();
+
+        $('#criNota').ionRangeSlider({
+            min     : 0,
+            max     : 5,
+            type    : 'single',
+            step    : .5,
+            prettify: false,
+            hasGrid : true
+        })
     });
 </script>

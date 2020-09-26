@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/podcasts', function () {
     return view('user/podcasts');
-})->name('podcasts');
+})->name('user-podcasts');
 
 Route::group(['namespace' => 'User'], function() {
     Route::get('/', 'HomeController@index')->name('home');
@@ -15,7 +15,7 @@ Route::group(['namespace' => 'User'], function() {
 
 Route::get('/admin/home', function () {
     return view('admin.home');
-})->name('admin');
+})->name('admin')->middleware('auth');
 
 Route::get('/admin/post', function () {
     return view('admin.pages.cadNoticias');
@@ -42,6 +42,25 @@ Route::get('/admin/news/edit/{id}', 'NewsController@edit')->name('news-edit');
 Route::put('/admin/news/edit/{id}', 'NewsController@update')->name('news-update');
 Route::delete('/admin/news/delete/{id}', 'NewsController@destroy')->name('news-destroy');
 
-//Auth::routes();
+Route::get('/admin/interviews', 'InterviewController@index')->name('interviews');
+Route::get('/admin/interviews/insert', 'InterviewController@create')->name('interviews-create');
+Route::post('/admin/interviews/insert', 'InterviewController@store')->name('interviews-store');
+Route::get('/admin/interviews/edit/{id}', 'InterviewController@edit')->name('interviews-edit');
+Route::put('/admin/interviews/edit/{id}', 'InterviewController@update')->name('interviews-update');
+Route::delete('/admin/interviews/delete/{id}', 'InterviewController@destroy')->name('interviews-destroy');
 
-//Route::get('/admin/home', 'HomeController@index')->name('home');
+Route::get('/admin/podcasts', 'PodcastController@index')->name('podcasts');
+Route::get('/admin/podcasts/insert', 'PodcastController@create')->name('podcasts-create');
+Route::post('/admin/podcasts/insert', 'PodcastController@store')->name('podcasts-store');
+Route::get('/admin/podcasts/edit/{id}', 'PodcastController@edit')->name('podcasts-edit');
+Route::put('/admin/podcasts/edit/{id}', 'PodcastController@update')->name('podcasts-update');
+Route::delete('/admin/podcasts/delete/{id}', 'PodcastController@destroy')->name('podcasts-destroy');
+
+Route::get('/admin/reviews', 'ReviewController@index')->name('reviews');
+Route::get('/admin/reviews/insert', 'ReviewController@create')->name('reviews-create');
+Route::post('/admin/reviews/insert', 'ReviewController@store')->name('reviews-store');
+Route::get('/admin/reviews/edit/{id}', 'ReviewController@edit')->name('reviews-edit');
+Route::put('/admin/reviews/edit/{id}', 'ReviewController@update')->name('reviews-update');
+Route::delete('/admin/reviews/delete/{id}', 'ReviewController@destroy')->name('reviews-destroy');
+
+Auth::routes();

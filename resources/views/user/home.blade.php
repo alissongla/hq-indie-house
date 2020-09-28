@@ -7,7 +7,11 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
                 <a href="{{route('home')}}">
-                    <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($interview->image)) }} alt="{{$interview->image_caption}}">
+                    @if ((isset($interview->image)))
+                        <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($interview->image)) }} alt="{{$interview->image_caption}}">
+                    @else
+                        <img class="d-block w-100" src="...">
+                    @endif
                     <div class="carousel-caption d-none d-md-block">
                         <h5>{{$interview->title}}</h5>
                         <p>{{$interview->subtitle}}</p>
@@ -15,14 +19,23 @@
                 </a>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($review->image)) }} alt="{{$review->image_caption}}">
+            @if ((isset($review->image)))
+                <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($review->image)) }} alt="{{$review->image_caption}}">
+            @else
+                <img class="d-block w-100" src="...">
+            @endif
             <div class="carousel-caption d-none d-md-block">
                 <h5>{{$review->title}}</h5>
                 <p>{{$review->subtitle}}</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($podcast->image)) }} alt="{{$podcast->image_caption}}">
+
+            @if ((isset($podcast->image)))
+                <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($podcast->image)) }} alt="{{$podcast->image_caption}}">
+            @else
+                <img class="d-block w-100" src="...">
+            @endif
             <div class="carousel-caption d-none d-md-block">
                 <h5>{{$podcast->title}}</h5>
                 <p>{{$podcast->subtitle}}</p>

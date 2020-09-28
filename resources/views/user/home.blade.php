@@ -9,37 +9,37 @@
                 <a href="{{route('home')}}">
                     @if ((isset($interview->image)))
                         <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($interview->image)) }} alt="{{$interview->image_caption}}">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{$interview->title}}</h5>
+                            <p>{{$interview->subtitle}}</p>
+                        </div>
                     @else
                         <img class="d-block w-100" src="...">
                     @endif
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>{{$interview->title}}</h5>
-                        <p>{{$interview->subtitle}}</p>
-                    </div>
                 </a>
           </div>
           <div class="carousel-item">
             @if ((isset($review->image)))
                 <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($review->image)) }} alt="{{$review->image_caption}}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{$review->title}}</h5>
+                    <p>{{$review->subtitle}}</p>
+                </div>
             @else
                 <img class="d-block w-100" src="...">
             @endif
-            <div class="carousel-caption d-none d-md-block">
-                <h5>{{$review->title}}</h5>
-                <p>{{$review->subtitle}}</p>
-            </div>
           </div>
           <div class="carousel-item">
 
             @if ((isset($podcast->image)))
                 <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($podcast->image)) }} alt="{{$podcast->image_caption}}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{$podcast->title}}</h5>
+                    <p>{{$podcast->subtitle}}</p>
+                </div>
             @else
                 <img class="d-block w-100" src="...">
             @endif
-            <div class="carousel-caption d-none d-md-block">
-                <h5>{{$podcast->title}}</h5>
-                <p>{{$podcast->subtitle}}</p>
-            </div>
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselNovidades" role="button" data-slide="prev">

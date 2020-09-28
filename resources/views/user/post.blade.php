@@ -1,5 +1,5 @@
 @extends('user/app')
-@section('bg-img', asset('user/img/post-bg.jpg'))
+@section('bg-img', secure_asset('user/img/post-bg.jpg'))
 @section('title', 'Man must explore, and this is exploration at its greatest')
 @section('sub-heading', 'Problems look mighty small from 150 miles up')
 @section('main-content')

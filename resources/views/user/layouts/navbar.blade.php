@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white" id="mainNav">
     <div class="container">
-        <img src={{ asset('img/logoHQ.png') }} width="200" height="100" class="d-inline-block align-top" alt="">
+        <img src={{ secure_asset('img/logoHQ.png') }} width="200" height="100" class="d-inline-block align-top" alt="">
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">

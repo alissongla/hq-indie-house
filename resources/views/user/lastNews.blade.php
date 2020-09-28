@@ -8,7 +8,7 @@
             @foreach ($news as $noticia)
                 <div class="row mb-5">
                     <div class="col-6">
-                        <img src={{ asset('img/bitter.jpg') }} alt="" width="100%">
+                        <img src={{ secure_asset('img/bitter.jpg') }} alt="" width="100%">
                     </div>
                     <div class="col-6" style="vertical-align: middle">
                     <h2><a href="{{ route('post', $noticia->slug)}}">{{ $noticia->title }}</a></h2>

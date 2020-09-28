@@ -2,8 +2,8 @@
 
 @section('head')
 <!-- Select2 -->
-<link rel="stylesheet" href={{ asset('admin/plugins/select2/css/select2.min.css') }}>
-<link rel="stylesheet" href={{ asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}>
+<link rel="stylesheet" href={{ secure_asset('admin/plugins/select2/css/select2.min.css') }}>
+<link rel="stylesheet" href={{ secure_asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}>
 @endsection
 @section('main-content')
 <!-- Content Header (Page header) -->

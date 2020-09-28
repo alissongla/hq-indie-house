@@ -1,7 +1,7 @@
 @extends('user/app')
 @section('main-content')
 <!-- Post Content -->
-    <header class="masthead" style="background-image: url('{{ asset(Storage::disk('public')->url($podcast->image)) }}')">
+    <header class="masthead" style="background-image: url('{{ secure_asset(Storage::disk('public')->url($podcast->image)) }}')">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">

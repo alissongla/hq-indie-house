@@ -4,7 +4,7 @@
 @section('sub-heading', 'Problems look mighty small from 150 miles up')
 @section('main-content')
 <!-- Post Content -->
-    <header class="masthead" style="background-image: url('{{ asset(Storage::disk('public')->url($post->image)) }}')">
+    <header class="masthead" style="background-image: url('{{ secure_asset(Storage::disk('public')->url($post->image)) }}')">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">

@@ -58,6 +58,7 @@ class ReviewController extends Controller
 
         $review = new Review;
         $review->title            = $request->criTitulo;
+        $review->subtitle         = $request->criSubTitulo;
         $review->author           = $request->criAutor;
         $review->text             = $request->criTexto;
         $review->slug             = $request->slug;

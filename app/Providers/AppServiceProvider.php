@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(UrlGenerator $url)
     {
+        \Carbon\Carbon::setLocale('pt_BR');
         if(env('REDIRECT_HTTPS'))
         {
             $url->forceSchema('https');

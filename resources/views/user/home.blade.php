@@ -3,14 +3,61 @@
  @section('main-content')
   <!-- Main Content -->
   <div class="container">
-    @include('user/components/carousel')
+    <div id="carouselNovidades" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+                <a href="{{route('home')}}">
+                    @if ((isset($interview->image)))
+                        <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($interview->image)) }} alt="{{$interview->image_caption}}">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{$interview->title}}</h5>
+                            <p>{{$interview->subtitle}}</p>
+                        </div>
+                    @else
+                        <img class="d-block w-100" src="...">
+                    @endif
+                </a>
+          </div>
+          <div class="carousel-item">
+            @if ((isset($review->image)))
+                <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($review->image)) }} alt="{{$review->image_caption}}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{$review->title}}</h5>
+                    <p>{{$review->subtitle}}</p>
+                </div>
+            @else
+                <img class="d-block w-100" src="...">
+            @endif
+          </div>
+          <div class="carousel-item">
+
+            @if ((isset($podcast->image)))
+                <img class="d-block w-100" src={{ secure_asset(Storage::disk('public')->url($podcast->image)) }} alt="{{$podcast->image_caption}}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{$podcast->title}}</h5>
+                    <p>{{$podcast->subtitle}}</p>
+                </div>
+            @else
+                <img class="d-block w-100" src="...">
+            @endif
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselNovidades" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselNovidades" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
     <div class="row mt-5">
-        <div class="col-9">
+        <div class="col">
             <h3 style="text-align: center">Últimas Notícias</h3>
             @foreach ($news as $noticia)
                 <div class="row mb-5">
                     <div class="col-6">
-                        <img src={{ secure_asset('img/bitter.jpg') }} alt="" width="100%">
+                        <img src={{ secure_asset(Storage::disk('public')->url($noticia->image)) }} alt="{{$noticia->image_caption}}" width="100%">
                     </div>
                     <div class="col-6" style="vertical-align: middle">
                     <h2><a href="{{ route('post', $noticia->slug)}}">{{ $noticia->title }}</a></h2>
@@ -24,10 +71,6 @@
             <a href="{{ route('ultimas-noticias') }}">Ver mais</a>
             </ul>
         </div>
-        <div class="col-3">
-            <iframe src="https://open.spotify.com/embed/playlist/0Ntxi04q5LMVpWV5Ljo1Dh" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </div>
-
     </div>
   </div>
 

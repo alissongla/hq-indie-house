@@ -4,26 +4,26 @@
 @section('sub-heading', 'Problems look mighty small from 150 miles up')
 @section('main-content')
 <!-- Post Content -->
-    <header class="masthead" style="background-image: url('{{ secure_asset(Storage::disk('public')->url($post->image)) }}')">
+    <header class="masthead" style="background-image: url('{{ secure_asset(Storage::disk('public')->url($interview->image)) }}')">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="post-heading">
-                            <h1>{{ $post->title}}</h1>
-                            <span class="meta">Postado por {{ $post->author }} as {{ $post->created_at->diffForHumans()}}
+                            <h1>{{ $interview->title}}</h1>
+                            <span class="meta">Postado por {{ $interview->author }}, {{ $interview->created_at->diffForHumans()}}
                         </div>
                     </div>
                 </div>
             </div>
         </header>
     </div>
-<!-- Post Content -->
+<!-- Interview Content -->
     <article>
         <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                {!! htmlspecialchars_decode($post->text) !!}
+                {!! htmlspecialchars_decode($interview->text) !!}
             </div>
         </div>
         </div>

@@ -16,6 +16,8 @@ Route::group(['namespace' => 'User'], function() {
     Route::get('/podcasts/{podcast}', 'LastPodcastsController@show')->name('user-podcasts-post');
     Route::get('/entrevistas', 'LastInterviewsController@index')->name('user-interviews');
     Route::get('/entrevistas/{interview}', 'LastInterviewsController@show')->name('user-interviews-post');
+    Route::get('/perfis', 'LastProfilesController@index')->name('user-profiles');
+    Route::get('/perfis/{profile}', 'LastProfilesController@show')->name('user-profiles-post');
 });
 
 
@@ -61,6 +63,13 @@ Route::post('/admin/podcasts/insert', 'PodcastController@store')->name('podcasts
 Route::get('/admin/podcasts/edit/{id}', 'PodcastController@edit')->name('podcasts-edit');
 Route::put('/admin/podcasts/edit/{id}', 'PodcastController@update')->name('podcasts-update');
 Route::delete('/admin/podcasts/delete/{id}', 'PodcastController@destroy')->name('podcasts-destroy');
+
+Route::get('/admin/profiles', 'ProfileController@index')->name('profiles');
+Route::get('/admin/profiles/insert', 'ProfileController@create')->name('profiles-create');
+Route::post('/admin/profiles/insert', 'ProfileController@store')->name('profiles-store');
+Route::get('/admin/profiles/edit/{id}', 'ProfileController@edit')->name('profiles-edit');
+Route::put('/admin/profiles/edit/{id}', 'ProfileController@update')->name('profiles-update');
+Route::delete('/admin/profiles/delete/{id}', 'ProfileController@destroy')->name('profiles-destroy');
 
 Route::get('/admin/reviews', 'ReviewController@index')->name('reviews');
 Route::get('/admin/reviews/insert', 'ReviewController@create')->name('reviews-create');

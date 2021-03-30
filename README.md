@@ -41,5 +41,5 @@
  
 ## Autor
  
-* **Alisson Campos*: @alissongla (https://github.com/alissongla)
+**Alisson Campos*: @alissongla (https://github.com/alissongla)
 
